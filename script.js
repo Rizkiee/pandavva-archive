@@ -28,7 +28,8 @@ avatar:"https://unavatar.io/youtube/@BimaBayusena"
 },
 
 "Yudistira Yogendra":{
-name:"https://unavatar.io/youtube/@YudistiraYogendra"
+name:"Yudistira Yogendra",
+avatar:"https://unavatar.io/youtube/@YudistiraYogendra"
 }
 
 }
