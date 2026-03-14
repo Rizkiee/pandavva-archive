@@ -1,42 +1,42 @@
-let videos=[]
+let videos = []
 
+/* avatar channel */
+const members = {
 
-const members={
-
-"group":{
-name:"Group",
-avatar:"https://yt3.googleusercontent.com/ytc/APkrFKZpandavva"
+"Pandavva":{
+name:"Pandavva",
+avatar:"https://yt3.googleusercontent.com/ytc/APkrFKYpandavva"
 },
 
 "Sadewa Sagara":{
-name:"Sadewa",
-avatar:"https://yt3.googleusercontent.com/ytc/APkrFKZsadewa"
+name:"Sadewa Sagara",
+avatar:"https://yt3.googleusercontent.com/ytc/APkrFKYsadewa"
 },
 
 "Nakula Nalendra":{
-name:"Nakula",
-avatar:"https://yt3.googleusercontent.com/ytc/APkrFKZnakula"
+name:"Nakula Nalendra",
+avatar:"https://yt3.googleusercontent.com/ytc/APkrFKYnakula"
 },
 
 "Arjuna Arkana":{
-name:"Arjuna",
-avatar:"https://yt3.googleusercontent.com/ytc/APkrFKZarjuna"
+name:"Arjuna Arkana",
+avatar:"https://yt3.googleusercontent.com/ytc/APkrFKYarjuna"
 },
 
 "Bima Bayusena":{
-name:"Bima",
-avatar:"https://yt3.googleusercontent.com/ytc/APkrFKZbima"
+name:"Bima Bayusena",
+avatar:"https://yt3.googleusercontent.com/ytc/APkrFKYbima"
 },
 
 "Yudistira Yogendra":{
-name:"Yudistira",
-avatar:"https://yt3.googleusercontent.com/ytc/APkrFKZyudi"
+name:"Yudistira Yogendra",
+avatar:"https://yt3.googleusercontent.com/ytc/APkrFKYyudi"
 }
 
 }
 
 
-
+/* ambil video id */
 function getVideoId(url){
 
 if(url.includes("watch?v="))
@@ -52,11 +52,15 @@ return url.split("/live/")[1].split("?")[0]
 
 
 
+/* bikin card video */
+
 function createCard(video){
 
-const id=getVideoId(video.url)
+const id = getVideoId(video.url)
 
-const thumb=`https://img.youtube.com/vi/${id}/hqdefault.jpg`
+const thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+
+const avatar = members[video.member]?.avatar || ""
 
 return `
 
@@ -72,8 +76,23 @@ ${video.duration}
 
 </div>
 
+
+<div class="meta">
+
+<img class="avatar" src="${avatar}">
+
+<div class="text">
+
 <div class="title">
 ${video.title}
+</div>
+
+<div class="info">
+${video.member} • ${video.date}
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -84,6 +103,8 @@ ${video.title}
 
 
 
+/* render kategori */
+
 function render(member="all"){
 
 const content=document.getElementById("content")
@@ -92,10 +113,10 @@ content.innerHTML=""
 
 
 
-let filtered=videos
+let filtered = videos
 
 if(member!="all")
-filtered=videos.filter(v=>v.member==member || v.member=="ALL")
+filtered = videos.filter(v=>v.member==member)
 
 
 
@@ -109,6 +130,109 @@ const section=document.createElement("div")
 
 section.className="section"
 
+section.innerHTML=`
+
+<div class="sectionHeader">
+
+<h2>${type}</h2>
+
+</div>
+
+<div class="row" id="row-${type}"></div>
+
+`
+
+content.appendChild(section)
+
+
+
+const row=document.getElementById(`row-${type}`)
+
+
+
+filtered
+
+.filter(v=>v.type==type)
+
+.slice(0,10)
+
+.forEach(v=>{
+
+row.innerHTML+=createCard(v)
+
+})
+
+})
+
+}
+
+
+
+/* render avatar member */
+
+function renderMembers(){
+
+const bar=document.getElementById("memberBar")
+
+bar.innerHTML=""
+
+
+
+bar.innerHTML+=`
+
+<div class="member" onclick="render('all')">
+
+<img src="https://yt3.googleusercontent.com/ytc/APkrFKYpandavva">
+
+<span>All</span>
+
+</div>
+
+`
+
+
+
+for(const key in members){
+
+const m=members[key]
+
+bar.innerHTML+=`
+
+<div class="member" onclick="render('${key}')">
+
+<img src="${m.avatar}">
+
+<span>${m.name}</span>
+
+</div>
+
+`
+
+}
+
+}
+
+
+
+/* load database */
+
+fetch("videos.json")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+videos=data
+
+renderMembers()
+
+render()
+
+})
+
+
+
+document.getElementById("homeBtn").onclick=()=>render()
 section.innerHTML=`
 
 <div class="sectionHeader">
