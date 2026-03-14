@@ -1,114 +1,28 @@
-let videos=[]
-
-const avatars={
-"Pandavva":"https://i.imgur.com/6VBx3io.png",
-"Sadewa Sagara":"https://i.imgur.com/6VBx3io.png",
-"Nakula Nalendra":"https://i.imgur.com/6VBx3io.png",
-"Arjuna Arkana":"https://i.imgur.com/6VBx3io.png",
-"Bima Bayusena":"https://i.imgur.com/6VBx3io.png",
-"Yudistira Yogendra":"https://i.imgur.com/6VBx3io.png"
-}
-
-
-function getVideoId(url){
-
-let id=null
-
-if(url.includes("watch?v="))
-id=url.split("watch?v=")[1]
-
-else if(url.includes("youtu.be/"))
-id=url.split("youtu.be/")[1]
-
-else if(url.includes("/live/"))
-id=url.split("/live/")[1]
-
-if(id) id=id.split("?")[0]
-
-return id
-}
-
-
-function createCard(video){
-
-const id=getVideoId(video.url)
-
-if(!id) return ""
-
-const thumb=`https://img.youtube.com/vi/${id}/hqdefault.jpg`
-
-const avatar=avatars[video.member]||avatars["Pandavva"]
-
-return`
-
-<div class="card" onclick="window.open('${video.url}')">
-
-<div class="thumb">
-
-<img src="${thumb}">
-<div class="duration">${video.duration}</div>
-
-</div>
-
-<div class="meta">
-
-<img class="avatar" src="${avatar}">
-
-<div class="text">
-
-<div class="title">${video.title}</div>
-<div class="info">${video.member} • ${video.date}</div>
-
-</div>
-
-</div>
-
-</div>
-
-`
-}
-
-
-function render(member="all"){
+fetch("videos.json")
+.then(r=>r.json())
+.then(videos=>{
 
 const content=document.getElementById("content")
 
-content.innerHTML=""
+videos.forEach(video=>{
 
-let filtered=videos
+const id = video.url.split("live/")[1] || video.url.split("youtu.be/")[1]
 
-if(member!="all")
-filtered=videos.filter(v=>v.member==member)
+const thumb=`https://img.youtube.com/vi/${id}/hqdefault.jpg`
 
-const types=[...new Set(filtered.map(v=>v.type))]
+content.innerHTML += `
+<div>
 
-types.forEach(type=>{
+<img src="${thumb}" width="200">
 
-const section=document.createElement("div")
+<p>${video.title}</p>
 
-section.className="section"
-
-section.innerHTML=`
-
-<div class="sectionHeader">
-<h2>${type}</h2>
 </div>
-
-<div class="row" id="row-${type}"></div>
-
 `
 
-content.appendChild(section)
-
-const row=document.getElementById(`row-${type}`)
-
-filtered
-.filter(v=>v.type==type)
-.forEach(v=>{
-
-row.innerHTML+=createCard(v)
-
 })
+
+})})
 
 })
 
