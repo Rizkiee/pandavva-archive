@@ -4,12 +4,17 @@ const members = {
 
 "Pandavva":{
 name:"Pandavva",
-avatar:"https://unavatar.io/youtube/@Pandavva"
+avatar:"https://unavatar.io/youtube/@PANDAVVA"
 },
 
 "Sadewa Sagara":{
 name:"Sadewa Sagara",
-avatar:"https://unavatar.io/youtube/@SadewaSagara"
+avatar:"https://unavatar.io/youtube/@Sadewa_Sagara"
+},
+
+"Nakula Nalendra":{
+name:"Nakula Nalendra",
+avatar:"https://unavatar.io/youtube/@Nakula_Nalendra"
 }
 
 }
