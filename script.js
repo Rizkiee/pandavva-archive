@@ -43,9 +43,7 @@ src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg">
 
 <h3 class="title">${video.title}</h3>
 
-<p class="channel">${video.member}</p>
-
-<p class="date">${video.date}</p>
+<p class="meta">${video.member} • ${video.date}</p>
 `;
 
 container.appendChild(card);
