@@ -15,6 +15,20 @@ avatar:"https://unavatar.io/youtube/@Sadewa_Sagara"
 "Nakula Nalendra":{
 name:"Nakula Nalendra",
 avatar:"https://unavatar.io/youtube/@Nakula_Nalendra"
+},
+
+"Arjuna Arkana":{
+name:"Arjuna Arkana",
+avatar:"https://unavatar.io/youtube/@Arjuna.Arkana"
+},
+
+"Bima Bayusena":{
+name:"Bima Bayusena",
+avatar:"https://unavatar.io/youtube/@BimaBayusena"
+},
+
+"Yudistira Yogendra":{
+name:"https://unavatar.io/youtube/@YudistiraYogendra"
 }
 
 }
