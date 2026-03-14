@@ -1,17 +1,27 @@
+```json
 [
 {
-"title":"Debut Stream Pandavva",
-"member":"Sadewa",
-"url":"https://www.youtube.com/watch?v=abc123xyz",
-"date":"Feb 5 2026",
-"duration":"1:02:46"
+"title":"MorningDews!",
+"url":"https://www.youtube.com/live/Nvvdt-VP5Jo",
+"member":"Sadewa Sagara",
+"type":"zatsudan",
+"duration":"1:06:20"
 },
 
 {
-"title":"Lore Episode 1",
-"member":"Pandavva",
-"url":"https://www.youtube.com/watch?v=xyz987abc",
-"date":"Feb 8 2026",
-"duration":"12:40"
+"title":"Pump Up The Volume!",
+"url":"https://youtu.be/3Qhc9zehnwA",
+"member":"ALL",
+"type":"karaoke",
+"duration":"3:02"
+},
+
+{
+"title":"Umigari Stream",
+"url":"https://www.youtube.com/live/MCMCgmsiYaM",
+"member":"Sadewa Sagara",
+"type":"gaming",
+"duration":"2:10:12"
 }
 ]
+```
