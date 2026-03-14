@@ -153,7 +153,7 @@ fetch("videos.json")
 .then(res=>res.json())
 .then(data=>{
 
-videos=data
+videos=data.sort((a,b)=> new Date(b.date) - new Date(a.date))
 
 renderMembers()
 render()
