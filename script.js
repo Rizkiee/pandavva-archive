@@ -1,21 +1,17 @@
 let videos = []
 
 const members = {
+
 "Pandavva":{
 name:"Pandavva",
-avatar:"https://i.imgur.com/6VBx3io.png"
+avatar:"https://unavatar.io/youtube/@Pandavva"
 },
+
 "Sadewa Sagara":{
 name:"Sadewa Sagara",
-avatar:"https://i.imgur.com/6VBx3io.png"
-}
+avatar:"https://unavatar.io/youtube/@SadewaSagara"
 }
 
-/* ambil ID youtube */
-function getID(url){
-if(url.includes("live/")) return url.split("live/")[1]
-if(url.includes("youtu.be/")) return url.split("youtu.be/")[1]
-return ""
 }
 
 /* buat card video */
