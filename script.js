@@ -1,52 +1,57 @@
-fetch("videos.json")
-.then(res => res.json())
-.then(videos => {
+function getVideoId(url){
+const regExp = /v=([^&]+)/;
+const match = url.match(regExp);
+return match ? match[1] : null;
+}
+
+const avatars = {
+"sadewa":"https://yt3.googleusercontent.com/ytc/AIdro_xxxxxx",
+"arjuna":"https://yt3.googleusercontent.com/ytc/AIdro_yyyyy"
+};
 
 const container = document.getElementById("video-container");
 
-videos.forEach(video => {
+fetch("videos.json")
+.then(res => res.json())
+.then(data => {
 
-let videoId = "";
+data.forEach(video => {
 
-if(video.link.includes("watch?v=")){
-videoId = video.link.split("watch?v=")[1];
-}
+const videoId = getVideoId(video.url);
 
-else if(video.link.includes("youtu.be/")){
-videoId = video.link.split("youtu.be/")[1];
-}
+const thumbnail =
+`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
-else if(video.link.includes("live/")){
-videoId = video.link.split("live/")[1];
-}
+const avatar = avatars[video.member.toLowerCase()];
 
-if(videoId.includes("&")){
-videoId = videoId.split("&")[0];
-}
+container.innerHTML += `
 
-const card = document.createElement("div");
-card.className = "card";
+<div class="card" onclick="window.open('${video.url}')">
 
-card.innerHTML = `
-<a href="${video.link}" target="_blank">
+<div class="thumb">
 
-<div class="thumb-container">
-
-<img class="thumbnail"
-src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg">
+<img src="${thumbnail}">
 
 <div class="duration">${video.duration}</div>
 
 </div>
 
-</a>
+<div class="video-info">
 
-<h3 class="title">${video.title}</h3>
+<img class="avatar" src="${avatar}">
 
-<p class="meta">${video.member} • ${video.date}</p>
+<div class="text">
+<div class="channel">${video.member}</div>
+<div class="date">${video.date}</div>
+</div>
+
+</div>
+
+<div class="title">${video.title}</div>
+
+</div>
+
 `;
-
-container.appendChild(card);
 
 });
 
