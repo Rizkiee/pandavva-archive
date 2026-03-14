@@ -125,4 +125,39 @@ bar.innerHTML=""
 bar.innerHTML+=`
 
 <div class="member" onclick="render('all')">
-<img src="https
+<img src="https://i.imgur.com/6VBx3io.png">
+<span>All</span>
+</div>
+
+`
+
+for(const key in members){
+
+const m=members[key]
+
+bar.innerHTML+=`
+
+<div class="member" onclick="render('${key}')">
+<img src="${m.avatar}">
+<span>${m.name}</span>
+</div>
+
+`
+
+}
+
+}
+
+/* load database */
+fetch("videos.json")
+.then(res=>res.json())
+.then(data=>{
+
+videos=data
+
+renderMembers()
+render()
+
+})
+
+document.getElementById("homeBtn").onclick=()=>render()
