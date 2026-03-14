@@ -149,7 +149,7 @@ bar.innerHTML+=`
 }
 
 /* load database */
-fetch("videos.json")
+fetch("https://opensheet.elk.sh/16IveyFW68vwyVHRIVH9MU0Jblh6HjUQ3PQU_QiE2C8c/pandavva_fansite_video_database")
 .then(res=>res.json())
 .then(data=>{
 
