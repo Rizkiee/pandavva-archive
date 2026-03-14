@@ -2,8 +2,8 @@ let videos = []
 
 const members = {
 
-"Pandavva":{
-name:"Pandavva",
+"Pandavva Official":{
+name:"Pandavva Official",
 avatar:"https://unavatar.io/youtube/@PANDAVVA"
 },
 
