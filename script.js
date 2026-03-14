@@ -1,62 +1,51 @@
-let videos = []
+let videos=[]
 
-/* avatar default */
-const avatars = {
-
+const avatars={
 "Pandavva":"https://i.imgur.com/6VBx3io.png",
 "Sadewa Sagara":"https://i.imgur.com/6VBx3io.png",
 "Nakula Nalendra":"https://i.imgur.com/6VBx3io.png",
 "Arjuna Arkana":"https://i.imgur.com/6VBx3io.png",
 "Bima Bayusena":"https://i.imgur.com/6VBx3io.png",
 "Yudistira Yogendra":"https://i.imgur.com/6VBx3io.png"
-
 }
 
-
-/* ambil video id dari url */
 
 function getVideoId(url){
 
-let id = null
+let id=null
 
 if(url.includes("watch?v="))
-id = url.split("watch?v=")[1]
+id=url.split("watch?v=")[1]
 
 else if(url.includes("youtu.be/"))
-id = url.split("youtu.be/")[1]
+id=url.split("youtu.be/")[1]
 
 else if(url.includes("/live/"))
-id = url.split("/live/")[1]
+id=url.split("/live/")[1]
 
-if(id)
-id = id.split("?")[0]
+if(id) id=id.split("?")[0]
 
 return id
-
 }
 
 
-
-/* bikin card */
-
 function createCard(video){
 
-const id = getVideoId(video.url)
+const id=getVideoId(video.url)
 
 if(!id) return ""
 
-const thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+const thumb=`https://img.youtube.com/vi/${id}/hqdefault.jpg`
 
-const avatar = avatars[video.member] || avatars["Pandavva"]
+const avatar=avatars[video.member]||avatars["Pandavva"]
 
-return `
+return`
 
 <div class="card" onclick="window.open('${video.url}')">
 
 <div class="thumb">
 
 <img src="${thumb}">
-
 <div class="duration">${video.duration}</div>
 
 </div>
@@ -68,7 +57,6 @@ return `
 <div class="text">
 
 <div class="title">${video.title}</div>
-
 <div class="info">${video.member} • ${video.date}</div>
 
 </div>
@@ -78,37 +66,106 @@ return `
 </div>
 
 `
+}
+
+
+function render(member="all"){
+
+const content=document.getElementById("content")
+
+content.innerHTML=""
+
+let filtered=videos
+
+if(member!="all")
+filtered=videos.filter(v=>v.member==member)
+
+const types=[...new Set(filtered.map(v=>v.type))]
+
+types.forEach(type=>{
+
+const section=document.createElement("div")
+
+section.className="section"
+
+section.innerHTML=`
+
+<div class="sectionHeader">
+<h2>${type}</h2>
+</div>
+
+<div class="row" id="row-${type}"></div>
+
+`
+
+content.appendChild(section)
+
+const row=document.getElementById(`row-${type}`)
+
+filtered
+.filter(v=>v.type==type)
+.forEach(v=>{
+
+row.innerHTML+=createCard(v)
+
+})
+
+})
 
 }
 
 
+function renderMembers(){
 
-/* render video */
+const bar=document.getElementById("memberBar")
 
-function render(member="all"){
+bar.innerHTML=""
 
-const content = document.getElementById("content")
+bar.innerHTML+=`
 
-content.innerHTML = ""
+<div class="member" onclick="render('all')">
 
-let filtered = videos
+<img src="${avatars["Pandavva"]}">
+<span>All</span>
 
-if(member!="all")
-filtered = videos.filter(v => v.member == member)
+</div>
+
+`
+
+Object.keys(avatars).forEach(member=>{
+
+bar.innerHTML+=`
+
+<div class="member" onclick="render('${member}')">
+
+<img src="${avatars[member]}">
+<span>${member}</span>
+
+</div>
+
+`
+
+})
+
+}
 
 
+fetch("videos.json")
 
-const types = [...new Set(filtered.map(v=>v.type))]
+.then(res=>res.json())
+
+.then(data=>{
+
+videos=data
+
+renderMembers()
+
+render()
+
+})
 
 
-
-types.forEach(type=>{
-
-const section = document.createElement("div")
-
-section.className = "section"
-
-section.innerHTML = `
+document.getElementById("homeBtn").onclick=()=>render()section.innerHTML = `
 
 <div class="sectionHeader">
 
