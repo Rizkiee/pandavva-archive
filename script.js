@@ -156,7 +156,7 @@ bar.innerHTML+=`
 /* load database */
 document.addEventListener("DOMContentLoaded",()=>{
 
-fetch("https://opensheet.elk.sh/16IveyFW68vwyVHRIVH9MU0Jblh6HjUQ3PQU_QiE2C8c/pandavva_fansite_video_database")
+fetch("https://opensheet.elk.sh/16IveyFW68vwyVHRIVH9MU0Jblh6HjUQ3PQU_QiE2C8c/videos")
 .then(res=>res.json())
 .then(data=>{
 
