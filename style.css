@@ -2,7 +2,7 @@ body{
 font-family:Arial;
 background:#111;
 color:white;
-text-align:center;
+text-align:left;
 }
 
 #video-container{
@@ -42,4 +42,10 @@ border-radius:4px;
 .thumbnail{
 width:100%;
 border-radius:10px;
+}
+
+.meta{
+font-size:14px;
+color:#aaa;
+margin-top:4px;
 }
