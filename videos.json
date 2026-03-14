@@ -2,88 +2,88 @@
 {
 "title":"PANDAVVA PROJECT - Coming Soon",
 "member":"Pandavva",
-"type":"event",
-"format":"video",
+"date":"2026-01-21",
+"duration":"0:21",
 "link":"https://youtu.be/WEHzVXIEDTE"
 },
 
 {
 "title":"Episode 0: Permulaan",
 "member":"Pandavva",
-"type":"lore",
-"format":"video",
+"date":"2026-01-24",
+"duration":"2:29",
 "link":"https://youtu.be/LW2XNMCut7M"
 },
 
 {
 "title":"Pump Up The Volume! - PLAVE (Versi Indonesia)",
 "member":"Pandavva",
-"type":"cover",
-"format":"video",
+"date":"2026-01-25",
+"duration":"3:05",
 "link":"https://youtu.be/3Qhc9zehnwA"
 },
 
 {
-"title":"Pump Up The Volume! (Acapella) - PLAVE (Versi Indonesia)",
+"title":"Pump Up The Volume! (Acapella)",
 "member":"Pandavva",
-"type":"cover",
-"format":"video",
+"date":"2026-01-25",
+"duration":"3:03",
 "link":"https://youtu.be/nV0roIibffY"
 },
 
 {
 "title":"Sadewa Sagara DEBUT STREAM",
 "member":"Sadewa Sagara",
-"type":"event",
-"format":"stream",
+"date":"2026-02-01",
+"duration":"50:49",
 "link":"https://www.youtube.com/live/HKKpD2HQF54"
 },
 
 {
 "title":"Sadewa Sagara AFTER DEBUT STREAM",
 "member":"Sadewa Sagara",
-"type":"zatsudan",
-"format":"stream",
+"date":"2026-02-02",
+"duration":"1:12:00",
 "link":"https://www.youtube.com/live/U-cW1OnqbWs"
 },
 
 {
 "title":"Maaf Bikin Kamu Nunggu",
 "member":"Sadewa Sagara",
-"type":"zatsudan",
-"format":"stream",
+"date":"2026-02-03",
+"duration":"1:05:33",
 "link":"https://www.youtube.com/live/eeMQH6C3VLw"
 },
 
 {
 "title":"Morning Dews!",
 "member":"Sadewa Sagara",
-"type":"zatsudan",
-"format":"stream",
+"date":"2026-02-04",
+"duration":"58:10",
 "link":"https://www.youtube.com/live/Nvvdt-VP5Jo"
 },
 
 {
 "title":"Good Evening?!",
 "member":"Sadewa Sagara",
-"type":"zatsudan",
-"format":"stream",
+"date":"2026-02-05",
+"duration":"47:02",
 "link":"https://www.youtube.com/live/v4kz44Q4uto"
 },
 
 {
 "title":"About Mascot",
 "member":"Sadewa Sagara",
-"type":"zatsudan",
-"format":"stream",
+"date":"2026-02-06",
+"duration":"1:03:21",
 "link":"https://www.youtube.com/live/eSLjmQnIwUk"
 },
 
 {
 "title":"Membership?",
 "member":"Sadewa Sagara",
-"type":"zatsudan",
-"format":"stream",
+"date":"2026-02-07",
+"duration":"55:12",
 "link":"https://www.youtube.com/live/Xo1lW_shLp0"
 }
 ]
