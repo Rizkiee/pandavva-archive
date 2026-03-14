@@ -154,15 +154,25 @@ bar.innerHTML+=`
 }
 
 /* load database */
+document.addEventListener("DOMContentLoaded",()=>{
+
 fetch("https://opensheet.elk.sh/16IveyFW68vwyVHRIVH9MU0Jblh6HjUQ3PQU_QiE2C8c/pandavva_fansite_video_database")
 .then(res=>res.json())
 .then(data=>{
 
-videos=data.sort((a,b)=> new Date(b.date) - new Date(a.date))
+videos=data
+
+videos.sort((a,b)=> new Date(b.date || 0) - new Date(a.date || 0))
 
 renderMembers()
 render()
 
 })
+.catch(err=>{
+console.error("Fetch error:",err)
+})
 
 document.getElementById("homeBtn").onclick=()=>render()
+
+})
+
